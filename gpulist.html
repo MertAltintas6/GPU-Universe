@@ -23,6 +23,18 @@
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="/">GPU Universe</a>
+      <div class="row h-100 my-auto">
+        	<ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/" style="color:#AE4E0F">Add</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/gpulist" style="color:#AE4E0F">GPU List</a>
+            </li>
+          </ul>
+      
+  	</div>
       <a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
     </div>
 </nav>
@@ -50,8 +62,12 @@
  				</tbody>
  			 </table>
  			 <br/>
-		<input class="btn btn-primary" type="submit" name="button" value="Compare">
+		<input class="btn btn-primary" type="submit" name="button" value="Compare"> 
 		</form>
+		{% if msg==True %}
+			<br>
+			<center><h5 style="color: #AE4E0F;">Please Select Two GPUs To Compare ! </h5></center>
+		{% endif %}
 	  </div>
 	   <div class="col-lg-5 order-lg-1 showcase-text" style="background-color:#AE4E0F; color: #fff; padding: 120px;">
 	   	<h4>Looking For Something Special?</h4>

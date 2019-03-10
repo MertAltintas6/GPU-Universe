@@ -26,8 +26,8 @@ class GPUCompare(webapp2.RequestHandler):
 		compare = self.request.get('compare', allow_multiple=True)
 		gpus = []
 
-		if len(compare) < 2:
-			self.redirect('/gpulist')
+		if len(compare) != 2:
+			self.redirect('/gpulist?msg=True')
 			return
 
 		for g in compare:

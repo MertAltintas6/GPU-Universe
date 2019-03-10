@@ -21,12 +21,24 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-light bg-light-nav static-top">
-    	<div class="container">
-     		<a class="navbar-brand" href="/">GPU Universe</a>
-    		<a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
-    	</div>
-	</nav>
+	<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">GPU Universe</a>
+      <div class="row h-100 my-auto">
+        	<ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/" style="color:#AE4E0F">Add</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/gpulist" style="color:#AE4E0F">GPU List</a>
+            </li>
+          </ul>
+      
+  	</div>
+      <a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
+    </div>
+</nav>
 <section class="testimonials text-center" style="background-color: #F3EEEE">
     <div class="container">
       <h2 class="mb-5">Compare Selected GPUs</h2>

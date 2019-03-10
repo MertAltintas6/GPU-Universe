@@ -5,7 +5,7 @@ class GPU(ndb.Model):
 	id = ndb.StringProperty()
 	name = ndb.StringProperty()
 	manufacturer = ndb.StringProperty()
-	dateIssued = ndb.DateTimeProperty(auto_now=True)
+	dateIssued = ndb.DateProperty()
 	geometryShader = ndb.BooleanProperty()
 	tesselationShader = ndb.BooleanProperty()
 	shaderInt16 = ndb.BooleanProperty()

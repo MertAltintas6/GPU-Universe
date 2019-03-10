@@ -24,7 +24,8 @@ class GPUList(webapp2.RequestHandler):
 			return
 		
 		gpus = GPU.query().fetch()
-		template_values = {'logout_url':users.create_logout_url(self.request.uri), 'gpus': gpus}
+		msg = bool(self.request.get('msg'))
+		template_values = {'logout_url':users.create_logout_url(self.request.uri), 'gpus': gpus, 'msg':msg}
 		template = JINJA_ENVIRONMENT.get_template('gpulist.html')
 		self.response.write(template.render(template_values))
 

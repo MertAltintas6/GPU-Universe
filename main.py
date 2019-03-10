@@ -10,6 +10,8 @@ from gpudetail import GPUDetail
 from gpuedit import GPUEdit
 from gpucompare import GPUCompare
 
+from datetime import datetime
+
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 	extensions = ['jinja2.ext.autoescape'],
@@ -49,6 +51,7 @@ class MainPage(webapp2.RequestHandler):
 				return
 			
 			man = self.request.get('man')
+			date = datetime.strptime(self.request.get('date'),'%m/%d/%Y')
 			geoshader = self.request.get('geoshader',False) != False
 			tesshader = self.request.get('tesshader',False) != False
 			shaderint = self.request.get('shaderint',False) != False
@@ -56,7 +59,7 @@ class MainPage(webapp2.RequestHandler):
 			etc = self.request.get('etc',False) != False
 			vertex = self.request.get('vertex',False) != False
 			
-			gpu = GPU(name = name, manufacturer = man, geometryShader = geoshader, tesselationShader=tesshader, shaderInt16 = shaderint, sparseBinding=sparse,
+			gpu = GPU(name = name, manufacturer = man, dateIssued = date, geometryShader = geoshader, tesselationShader=tesshader, shaderInt16 = shaderint, sparseBinding=sparse,
 				textureCompressionETC2 = etc, vertexPipelineStoresAndAtomics=vertex)
 			
 			gpu.key = ndb.Key('GPU', name)

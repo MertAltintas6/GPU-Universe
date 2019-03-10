@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 import os
 
 from gpu import GPU
-
+from datetime import datetime
 JINJA_ENVIRONMENT = jinja2.Environment(
 	loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 	extensions = ['jinja2.ext.autoescape'],
@@ -39,6 +39,10 @@ class GPUEdit(webapp2.RequestHandler):
 			gpu = gpu_key.get()
 			
 			gpu.manufacturer = self.request.get('man')
+			try:
+				gpu.dateIssued = datetime.strptime(self.request.get('date'),'%m/%d/%Y')
+			except Exception as e:
+				gpu.dateIssued = datetime.strptime(self.request.get('date'),'%Y-%m-%d')
 			gpu.geometryShader = self.request.get('geoshader',False) != False
 			gpu.tesselationShader = self.request.get('tesshader',False) != False
 			gpu.shaderInt16 = self.request.get('shaderint',False) != False
