@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<meta name="description" content="">
+ 	<meta name="author" content="">
+
+	<title>GPU Comparison</title>
+
+	<!-- Bootstrap core CSS -->
+  	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  	<!-- Custom fonts for this template -->
+  	<link href="/css/all.min.css" rel="stylesheet">
+ 	<link href="/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  	<!-- Custom styles for this template -->
+  	<link href="/css/landing-page.min.css" rel="stylesheet">
+
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light-nav static-top">
+    	<div class="container">
+     		<a class="navbar-brand" href="/">GPU Universe</a>
+    		<a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
+    	</div>
+	</nav>
+<section class="testimonials text-center" style="background-color: #F3EEEE">
+    <div class="container">
+      <h2 class="mb-5">Compare Selected GPUs</h2>
+      <div class="row">	
+<table class="table" align="center">
+	<tr>
+		<th> Features </th>
+		<th> {{gpus[0].name}} </th>
+		<th> {{gpus[1].name}} </th>		
+	</tr>
+	<tr>
+		<th> Manufacturer </th> 
+		<td> {{gpus[0].manufacturer}} </td>
+		<td> {{gpus[1].manufacturer}} </td>
+	</tr>
+	<tr>
+		<th> Date Issued </th>
+		<td> {{gpus[0].dateIssued}} </td>
+		<td> {{gpus[1].dateIssued}} </td>
+	</tr>
+	<tr>
+		<th> Geometry Shader </th>
+		<td> {{gpus[0].geometryShader}} </td>
+		<td> {{gpus[1].geometryShader}} </td>
+	</tr>
+	<tr>
+		<th> Tesselation Shader </th>
+		<td> {{gpus[0].tesselationShader}} </td>
+		<td> {{gpus[1].tesselationShader}} </td>
+	</tr>
+	<tr>
+		<th> Shader Int16 </th>
+		<td> {{gpus[0].shaderInt16}} </td>
+		<td> {{gpus[1].shaderInt16}} </td>
+	</tr>
+	<tr>
+		<th> Sparse Binding </th>
+		<td> {{gpus[0].sparseBinding}} </td>
+		<td> {{gpus[1].sparseBinding}} </td>
+	</tr>
+	<tr>
+		<th> Texture Compression ETC2 </th>
+		<td> {{gpus[0].textureCompressionETC2}} </td>
+		<td> {{gpus[1].textureCompressionETC2}} </td>
+	</tr>
+	<tr>
+		<th> Vertex Pipeline Stores & Atomics </th>
+		<td> {{gpus[0].vertexPipelineStoresAndAtomics}} </td>
+		<td> {{gpus[1].vertexPipelineStoresAndAtomics}} </td>
+	</tr>
+</table>
+<br/>
+<a href="/gpulist"><button class="btn btn-primary">Back</button></a>
+</div>
+    </div>
+  </section>
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center my-auto">
+        	<ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/" style="color:#AE4E0F">Add</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/gpulist" style="color:#AE4E0F">GPU List</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">Mert Altintas 2982775</p>
+          <p class="text-muted small mb-4 mb-lg-0">MSc in Big Data & Management</p>
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

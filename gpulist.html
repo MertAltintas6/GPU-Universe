@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<meta name="description" content="">
+ 	<meta name="author" content="">	
+
+	<title>GPU List</title>
+
+	<!-- Bootstrap core CSS -->
+  	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  	<!-- Custom fonts for this template -->
+  	<link href="/css/all.min.css" rel="stylesheet">
+ 	<link href="/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  	<!-- Custom styles for this template -->
+  	<link href="/css/landing-page.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">GPU Universe</a>
+      <a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
+    </div>
+</nav>
+<section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row">
+      	<div class="col-lg-7 order-lg-1 my-auto showcase-text">
+      	<form method="get" action="/gpucompare">
+			<table class="table table-hover">
+    			<thead>
+      				<tr>
+        				<th>Name</th>
+        				<th>Compare</th>
+        				<th>Detail</th>
+      				</tr>
+    			</thead>
+   				<tbody>
+      				{% for i in gpus %}
+						<tr>
+							<td> {{i.name}} </td>
+							<td> <center><input type="checkbox" name="compare" value="{{i.name}}"> </center></td> 
+							<td align="center"> <a href="/gpu?gpuname={{i.name}}"> >> </a> </td>
+						</tr>
+					{% endfor %}
+ 				</tbody>
+ 			 </table>
+ 			 <br/>
+		<input class="btn btn-primary" type="submit" name="button" value="Compare">
+		</form>
+	  </div>
+	   <div class="col-lg-5 order-lg-1 showcase-text" style="background-color:#AE4E0F; color: #fff; padding: 120px;">
+	   	<h4>Looking For Something Special?</h4>
+	   	<p>Filter the GPUs according to your needs... </p>
+	   	<hr style="border-top: 0.5px dotted white">
+<form method="post" action="/gpulist">
+	<table align="center">
+		<tr>
+			<th> Geometry Shader </th>
+			<td align="right"> <input type="checkbox" name="filter" value= "geometryShader"/> </td>
+		</tr>
+		<tr>
+			<th> Tesselation Shader </th> 
+			<td align="right"> <input type="checkbox" name="filter" value="tesselationShader"/> </td>	
+		</tr>
+		<tr>
+			<th> Shader Int16 </th>
+			<td align="center"> <input type="checkbox" name="filter" value="shaderInt16" /> </td>
+		</tr>
+		<tr>
+			<th> Sparse Binding </th> 
+			<td align="center"> <input type="checkbox" name="filter" value="sparseBinding" /> </td>
+		</tr>
+		<tr>
+			<th> Texture Compression ETC2 </th> 
+			<td align="center"> <input type="checkbox" name="filter" value="textureCompressionETC2" /> </td>
+		</tr>
+		<tr>
+			<th> Vertex Pipeline Stores & Atomics </th> 
+			<td align="center"> <input type="checkbox" name="filter" value="vertexPipelineStoresAndAtomics" /> </td>
+		</tr>
+	</table>
+	<br><br>
+	<center><input class="btn btn-secondary" type="submit" name="button" value="Search"></center>
+</form>
+	   </div>
+	</div>
+	</div>
+</section>
+<footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center my-auto">
+        	<ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/" style="color:#AE4E0F">Add</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/gpulist" style="color:#AE4E0F">GPU List</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">Mert Altintas 2982775</p>
+          <p class="text-muted small mb-4 mb-lg-0">MSc in Big Data & Management</p>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>

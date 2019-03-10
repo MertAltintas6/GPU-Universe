@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<meta name="description" content="">
+ 	<meta name="author" content="">	
+
+	<title>GPU Universe</title>
+
+	<!-- Bootstrap core CSS -->
+  	<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  	<!-- Custom fonts for this template -->
+  	<link href="/css/all.min.css" rel="stylesheet">
+ 	<link href="/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  	<!-- Custom styles for this template -->
+  	<link href="/css/landing-page.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">GPU Universe</a>
+      <a class="btn btn-primary" href="{{logout_url}}">Log Out</a>
+    </div>
+</nav>
+
+<!-- form that will be used to permit the user to add a new gpu-->
+<header class="masthead text-white text-center" style="padding-top: 5rem;padding-bottom: 5rem">
+    <div class="container">
+    	<div class="overlay"></div>
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+<h3>Add a New GPU</h3>
+<br>
+<form method="post" action="/">
+	<table align="center">
+		<tr>
+			<th> Name </th> 
+			<td> <input class="form-control form-control-sm" placeholder="Enter GPU's Name..." type="text" name="name" required> </td>
+		</tr>
+		<tr>
+			<th> Manufacturer </th> 
+			<td> <input class="form-control form-control-sm" placeholder="Enter Manufacturer..." type="text" name="man"/> </td>
+		</tr>
+		<tr>
+			<th> Geometry Shader </th>
+			<td> <input class="form-check-input" type="checkbox" name="geoshader"/> </td>
+		</tr>
+		<tr>
+			<th> Tesselation Shader </th> 
+			<td><input class="form-check-input" type="checkbox" name="tesshader"/> </td>	
+		</tr>
+		<tr>
+			<th> Shader Int16 </th>
+			<td> <input class="form-check-input" type="checkbox" name="shaderint"/> </td>
+		</tr>
+		<tr>
+			<th> Sparse Binding </th> 
+			<td> <input class="form-check-input" type="checkbox" name="sparse"/> </td>
+		</tr>
+		<tr>
+			<th> Texture Compression ETC2 </th> 
+			<td> <input class="form-check-input" type="checkbox" name="etc"/> </td>
+		</tr>
+		<tr>
+			<th> Vertex Pipeline Stores & Atomics </th> 
+			<td> <input class="form-check-input" type="checkbox" name="vertex"/> </td>
+		</tr>
+		<tr>
+			<th></th>
+			<td><br><input class="btn btn-secondary" type="submit" name="button" value="Add GPU"></td>
+		</tr>
+	</table>
+</form>
+{% if control==True %}
+	<h5>This GPU already exists ! </h5>
+{% endif %}
+
+</div>
+      </div>
+    </div>
+  </header>
+
+<footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center my-auto">
+        	<ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="/" style="color:#AE4E0F">Add</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="/gpulist" style="color:#AE4E0F">GPU List</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">Mert Altintas 2982775</p>
+          <p class="text-muted small mb-4 mb-lg-0">MSc in Big Data & Management</p>
+        </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+</html>
