@@ -2,7 +2,6 @@
 from google.appengine.ext import ndb
 
 class GPU(ndb.Model):
-	id = ndb.StringProperty()
 	name = ndb.StringProperty()
 	manufacturer = ndb.StringProperty()
 	dateIssued = ndb.DateProperty()

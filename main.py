@@ -40,7 +40,7 @@ class MainPage(webapp2.RequestHandler):
 		action = self.request.get('button')
 		
 		if action == 'Add GPU':
-			name = self.request.get('name')
+			name = self.request.get('name').strip()
 			gpu_key = ndb.Key('GPU',name)
 			gpu = gpu_key.get()
 			
@@ -50,8 +50,11 @@ class MainPage(webapp2.RequestHandler):
 				self.response.write(template.render(template_values))
 				return
 			
-			man = self.request.get('man')
-			date = datetime.strptime(self.request.get('date'),'%m/%d/%Y')
+			man = self.request.get('man').strip()
+			try:
+				date = datetime.strptime(self.request.get('date'),'%m/%d/%Y')
+			except Exception as e:
+				date = datetime.strptime(self.request.get('date'),'%Y-%m-%d')
 			geoshader = self.request.get('geoshader',False) != False
 			tesshader = self.request.get('tesshader',False) != False
 			shaderint = self.request.get('shaderint',False) != False

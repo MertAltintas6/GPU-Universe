@@ -38,7 +38,7 @@ class GPUEdit(webapp2.RequestHandler):
 			gpu_key = ndb.Key('GPU', name)
 			gpu = gpu_key.get()
 			
-			gpu.manufacturer = self.request.get('man')
+			gpu.manufacturer = self.request.get('man').strip()
 			try:
 				gpu.dateIssued = datetime.strptime(self.request.get('date'),'%m/%d/%Y')
 			except Exception as e:
